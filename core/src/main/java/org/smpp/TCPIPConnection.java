@@ -567,6 +567,10 @@ public class TCPIPConnection extends Connection {
 	public boolean isOpened() {
 		return opened;
 	}
+
+	public int getPort() {
+		return port;
+	}
 }
 /*
  * $Log: not supported by cvs2svn $
