@@ -10,9 +10,11 @@
  */
 package org.smpp.pdu;
 
+import java.util.Collections;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Hashtable;
+import java.util.List;
 import java.util.Vector;
 
 import org.smpp.Data;
@@ -638,6 +640,13 @@ public abstract class PDU extends ByteData {
 	public TLV getExtraOptional(short tag) {
 		TLV tlv = findOptional(extraOptionalParameters, tag);
 		return tlv;
+	}
+	
+	/**
+	 * Returns an immutable list of the extra optional TLV parameters.
+	 */
+	public List<TLV> getExtraOptionals() {
+		return Collections.unmodifiableList(extraOptionalParameters);
 	}
 
 	/** Checks if the header field is null and if not, creates it. */
